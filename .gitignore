@@ -2,6 +2,7 @@ table.png
 typingbox.gif
 node_modules
 *.log
+.env
 
 # Output directory
 dist
