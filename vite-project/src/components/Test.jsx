@@ -11,9 +11,11 @@ function Test(props) {
     <div>
       <h2>Conversion Rates</h2>
 
-      <select onChange={(e) => {
-        console.log(e.target.value)
-      }}>
+      <select
+        onChange={(e) => {
+          console.log(e.target.value);
+        }}
+      >
         {Object.entries(currencies.rates).map(([currency]) => (
           <option key={currency} value={currency}>
             {currency}

@@ -5,66 +5,63 @@ import axios from "axios";
 
 const apiKey = import.meta.env.VITE_API_KEY;
 
-
 function Home() {
   const [currencies, setCurrencies] = useState([]);
-  const [symbols, setSymbols] = useState([])
+  const [symbols, setSymbols] = useState([]);
   const [error, setError] = useState("");
   const [selectedCurrencyFrom, setSelectedCurrencyFrom] = useState("EUR");
   const [selectedCurrencyTo, setSelectedCurrencyTo] = useState("SEK");
   const [selectedValue, setSelectedValue] = useState("0");
 
-
   useEffect(() => {
     const fetchSymbols = async () => {
       const options = {
-        method: 'GET',
-        url: 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/symbols',
+        method: "GET",
+        url: "https://currency-conversion-and-exchange-rates.p.rapidapi.com/symbols",
         headers: {
-          'X-RapidAPI-Key': apiKey,
-          'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
-        }
+          "X-RapidAPI-Key": apiKey,
+          "X-RapidAPI-Host":
+            "currency-conversion-and-exchange-rates.p.rapidapi.com",
+        },
       };
-      
+
       try {
         const response = await axios.request(options);
-        setSymbols(response.data)
-        console.log(response.data)
-
+        setSymbols(response.data);
+        console.log(response.data);
       } catch (error) {
         setError(error);
       }
     };
-    fetchSymbols()
-  },[])
+    fetchSymbols();
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {
       const options = {
-        method: 'GET',
-        url: 'https://currency-conversion-and-exchange-rates.p.rapidapi.com/latest',
+        method: "GET",
+        url: "https://currency-conversion-and-exchange-rates.p.rapidapi.com/latest",
         params: {
-          from: 'USD',
-          to: 'EUR,GBP'
+          from: "USD",
+          to: "EUR,GBP",
         },
         headers: {
-          'X-RapidAPI-Key': apiKey,
-          'X-RapidAPI-Host': 'currency-conversion-and-exchange-rates.p.rapidapi.com'
-        }
+          "X-RapidAPI-Key": apiKey,
+          "X-RapidAPI-Host":
+            "currency-conversion-and-exchange-rates.p.rapidapi.com",
+        },
       };
-      
+
       try {
         const response = await axios.request(options);
-        setCurrencies(response.data)
-        console.log(response.data)
-
+        setCurrencies(response.data);
+        console.log(response.data);
       } catch (error) {
         setError(error);
       }
     };
-    fetchData()
-  },[])
-
+    fetchData();
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen justify-center items-center gap-5 bg-customPurple">
@@ -80,14 +77,14 @@ function Home() {
         />
       </div>
       <div className="flex items-center flex-col mb-10">
-      <Chart 
-        currencies={currencies}
-        setSelectedCurrencyFrom={setSelectedCurrencyFrom}
-        selectedCurrencyFrom={selectedCurrencyFrom}
-        setSelectedCurrencyTo={setSelectedCurrencyTo}
-        selectedCurrencyTo={selectedCurrencyTo}
-        symbols={symbols}
-        setSymbols={setSymbols}
+        <Chart
+          currencies={currencies}
+          setSelectedCurrencyFrom={setSelectedCurrencyFrom}
+          selectedCurrencyFrom={selectedCurrencyFrom}
+          setSelectedCurrencyTo={setSelectedCurrencyTo}
+          selectedCurrencyTo={selectedCurrencyTo}
+          symbols={symbols}
+          setSymbols={setSymbols}
         />
       </div>
     </div>
@@ -96,4 +93,4 @@ function Home() {
 
 export default Home;
 
-console.log("rerender Home")
+console.log("rerender Home");

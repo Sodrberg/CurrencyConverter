@@ -43,8 +43,8 @@ function Chart({
         <p>1 EUR = </p>
         <hr className="border-t border-customRed w-[70%] my-4" />
       </div>
-      <div className="bg-customGreen p-5">
-        <ul className="max-h-64 overflow-y-auto w-full list-none">{chart}</ul>
+      <div className="bg-customGreen w-full p-5">
+        <ul className="max-h-64 overflow-y-auto w-full list-none pl-14">{chart}</ul>
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-
 function InputForm({ selectedValue, setSelectedValue }) {
   return (
     <div className="relative border border-black rounded overflow-hidden bg-white text-left shadow-md sm:text-sm">

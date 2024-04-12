@@ -67,7 +67,7 @@ function Converter({
   return (
     <div className="flex flex-col items-center border-4 border-customRed rounded-md ">
       <h1 className="text-3xl mt-5">Currency converter</h1>
-      <hr className="border-t border-customRed w-[70%] my-4" />
+      <hr className="border-t border-customRed w-[70%]" />
       <div className="flex flex-col gap-20 mx-24 mt-24 mb-24">
         <div className="flex flex-col gap-20">
           <div className="sm:flex gap-12 ">
@@ -109,8 +109,12 @@ function Converter({
           </div>
         </div>
         <div className="flex gap-20 justify-center">
-          <span className="text-xl">{selectedValue} {selectedCurrencyFrom} = </span>
-          <span className="text-xl">{conversionResult}  {selectedCurrencyTo}</span>
+          <span className="text-xl">
+            {selectedValue} {selectedCurrencyFrom} ={" "}
+          </span>
+          <span className="text-xl">
+            {conversionResult} {selectedCurrencyTo}
+          </span>
         </div>
       </div>
     </div>

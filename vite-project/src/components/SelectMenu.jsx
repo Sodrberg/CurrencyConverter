@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-function SelectMenu({ currencies,selectedCurrency, setSelectedCurrency }) {
+function SelectMenu({ currencies, selectedCurrency, setSelectedCurrency }) {
   if (!currencies.rates) {
     return <div>Loading...</div>;
   }
@@ -9,7 +9,7 @@ function SelectMenu({ currencies,selectedCurrency, setSelectedCurrency }) {
     <option key={currency} value={currency}>
       {currency}
     </option>
-  ))
+  ));
 
   return (
     <div className="border border-black w-full overflow-hidden rounded-lg">
